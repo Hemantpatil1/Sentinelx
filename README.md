@@ -1,80 +1,500 @@
-# SentinelX — Enterprise Threat Detection & Incident Response Platform
+# 🛡️ SentinelX – Enterprise Security Information and Event Management (SIEM) Platform
 
-SentinelX is a Security Information and Event Management (SIEM) platform designed for Security Operations Centers (SOC) to monitor, upload, parse, and analyze security event logs. Using an automated, rule-based detection engine mapped to the MITRE ATT&CK framework, it generates alerts and manages escalated incidents.
+<div align="center">
 
-## 🚀 Key Modules
-1. **Authentication:** JWT-secured login/logout for `Administrator` and `SOC Analyst` roles.
-2. **SOC Dashboard:** Real-time metrics overview, Area trends timeline, distribution charts (using Recharts), live activity feed, and recent security alerts.
-3. **Log Management:** Supports drag-and-drop log uploads (`.csv`, `.log`, `.txt`) with deletion and database registry.
-4. **Log Parser:** Multi-format regex extraction of fields: timestamp, source/destination IPs, usernames, port, protocol, action, and status.
-5. **Threat Detection Engine:** Mapped against 7 core rules (Brute Force, Port Scan, DDoS, Blacklisted IP lookup, Off-hours admin access, Impossible Travel, and Privilege Escalation).
-6. **Alert Management:** Deep investigation view, severities (`Critical`, `High`, `Medium`, `Low`), status state management, and MITRE mapping.
-7. **Incident Response:** Escalate alerts to tracked incidents, write journal entries, assign analysts, and review the chronological audit trail.
-8. **Reports:** Compile dynamic, executive-style PDF documents using ReportLab or export complete alerts database lists to CSV.
-9. **Threat Intelligence:** Cross-reference connections against whitelist/blacklist text files with quick rep checkers.
+![Python](https://img.shields.io/badge/Python-3.11-blue)
+![Flask](https://img.shields.io/badge/Flask-3.0-green)
+![React](https://img.shields.io/badge/React-18-61DAFB)
+![SQLite](https://img.shields.io/badge/SQLite-Database-blue)
+![JWT](https://img.shields.io/badge/JWT-Authentication-orange)
+![License](https://img.shields.io/badge/License-MIT-success)
 
----
+### Enterprise Cyber Security Monitoring & Threat Detection Platform
 
-## 🛠️ Tech Stack & Directory Structure
-* **Frontend:** React, Vite, TailwindCSS (glassmorphism design theme)
-* **Backend:** Python Flask
-* **Database:** SQLite3
+</div>
 
 ---
 
-## 🏁 Quick Start & Installation
+# 📌 Overview
 
-### Option A: Using Docker Compose (Recommended)
-Make sure you have Docker installed.
+**SentinelX** is a Security Information and Event Management (SIEM) platform designed to simulate the workflow of a modern Security Operations Center (SOC).
 
-1. Clone or navigate to the project directory:
-   ```bash
-   cd C:\Users\LENOVO\.gemini\antigravity\scratch\sentinelx
-   ```
-2. Build and run containers:
-   ```bash
-   docker-compose up --build
-   ```
-3. Open your browser:
-   * **Frontend Application:** `http://localhost:3000`
-   * **Backend API Base:** `http://localhost:5000`
+The platform collects security logs from multiple sources, analyzes them using custom threat detection rules, identifies malicious activities, generates security alerts, creates incidents, and provides real-time visualization through an interactive dashboard.
+
+SentinelX demonstrates the core concepts used by enterprise SIEM solutions such as:
+
+- Microsoft Sentinel
+- IBM QRadar
+- Splunk Enterprise Security
+- Elastic Security
+
+The project focuses on log analysis, attack detection, incident management, and security reporting.
 
 ---
 
-### Option B: Local Setup (Manual)
+# 🎯 Objectives
 
-#### 1. Backend Setup
-1. Navigate to the server folder:
-   ```bash
-   cd server
-   ```
-2. Install Python packages:
-   ```bash
-   pip install -r requirements.txt
-   ```
-3. Start the Flask server:
-   ```bash
-   python app.py
-   ```
-   *The server runs at `http://localhost:5000` and automatically initializes the database schema.*
-
-#### 2. Frontend Setup
-1. Navigate to the client folder:
-   ```bash
-   cd ../client
-   ```
-2. Install Node dependencies:
-   ```bash
-   npm install
-   ```
-3. Start the Vite dev server:
-   ```bash
-   npm run dev
-   ```
-   *Open `http://localhost:3000` to interact with the dashboard.*
+- Collect logs from enterprise systems
+- Detect cyber attacks in real-time
+- Generate security alerts
+- Assist SOC analysts during investigations
+- Reduce Mean Time To Detect (MTTD)
+- Improve incident response workflow
 
 ---
 
-## 🔐 Credentials (Demo Accounts)
-* **Administrator:** `admin` / `admin123`
-* **SOC Analyst:** `analyst` / `analyst123`
+# 🚀 Key Features
+
+## 🔐 Authentication
+
+- JWT Authentication
+- Secure Login
+- Role Based Access Control
+- Session Management
+
+---
+
+## 📥 Log Management
+
+Supports importing security logs in CSV format.
+
+Each uploaded log contains:
+
+- Timestamp
+- Source IP
+- Destination IP
+- Username
+- Port
+- Protocol
+- Status
+- Action
+- Raw Event
+
+Uploaded logs are stored inside the SQLite database for further analysis.
+
+---
+
+# 🛡️ Threat Detection Engine
+
+The Detection Engine continuously scans imported logs and automatically generates alerts whenever suspicious activity is detected.
+
+---
+
+## Detection Rules
+
+### 🔴 Brute Force Detection
+
+Detects multiple failed login attempts from the same IP address within a specific time window.
+
+**Detection Logic**
+
+- Failed Login Attempts ≥ 5
+- Same Source IP
+- Within 60 Seconds
+
+---
+
+### 🌐 Port Scan Detection
+
+Detects attackers scanning multiple ports in a short period.
+
+**Detection Logic**
+
+- Unique Ports ≥ 10
+- Same IP Address
+- Within 30 Seconds
+
+---
+
+### ⚠️ Blacklisted IP Detection
+
+Checks incoming traffic against a Threat Intelligence blacklist.
+
+If the Source IP exists inside
+
+```
+blacklist.txt
+```
+
+an alert is immediately generated.
+
+---
+
+### 🚨 DDoS Detection
+
+Detects unusually high request volumes from the same source.
+
+**Detection Logic**
+
+- Requests ≥ 100
+- Same Source IP
+- Within 30 Seconds
+
+---
+
+### 👨‍💻 Suspicious Admin Login
+
+Detects administrator logins outside business hours.
+
+Detection Time
+
+```
+11:00 PM – 06:00 AM
+```
+
+---
+
+### 🌍 Impossible Travel Detection
+
+Detects impossible geographic movement by comparing login locations.
+
+Example
+
+```
+India
+↓
+
+2 Minutes
+
+↓
+
+USA
+```
+
+Such activity is considered suspicious.
+
+---
+
+### 🔓 Privilege Escalation Detection
+
+Detects repeated failed attempts to access administrator or root privileges.
+
+---
+
+# 🚨 Alert Management
+
+Every detected threat automatically generates an alert containing:
+
+- Alert Name
+- Threat Type
+- Severity
+- Risk Score
+- Source IP
+- Destination IP
+- Username
+- MITRE ATT&CK Technique
+- MITRE ATT&CK Tactic
+- Recommendation
+- Timestamp
+
+Alerts can be:
+
+- Open
+- Under Investigation
+- Resolved
+
+---
+
+# 📊 Dashboard
+
+The dashboard provides real-time security analytics.
+
+### KPI Cards
+
+- Total Logs
+- Total Alerts
+- Critical Alerts
+- High Alerts
+- Medium Alerts
+- Low Alerts
+- Open Incidents
+- Resolved Incidents
+
+---
+
+### Interactive Charts
+
+- Attack Timeline
+- Severity Distribution
+- Threat Distribution
+- Top Attacker IPs
+- Targeted Users
+- MITRE ATT&CK Statistics
+
+---
+
+# 📁 Incident Management
+
+Every critical alert can generate an incident.
+
+Each incident includes:
+
+- Incident Title
+- Priority
+- Status
+- Assigned Analyst
+- Investigation Notes
+- Timeline
+- Resolution Status
+
+---
+
+# 📄 Report Generation
+
+Generate security reports including:
+
+- Incident Reports
+- Threat Reports
+- Alert Reports
+
+Supported Formats
+
+- CSV
+- PDF
+
+---
+
+# 🧠 Threat Intelligence
+
+SentinelX supports external threat intelligence feeds.
+
+Files
+
+```
+blacklist.txt
+trusted_ips.txt
+```
+
+These files are loaded during application startup.
+
+Blacklisted IPs automatically trigger security alerts.
+
+---
+
+# 🏗️ Project Architecture
+
+```
+               +----------------------+
+               |    React Dashboard   |
+               +----------+-----------+
+                          |
+                          |
+                    REST API (JWT)
+                          |
++------------------------------------------------+
+|               Flask Backend                    |
+|------------------------------------------------|
+| Authentication                                 |
+| Log Upload                                     |
+| Detection Engine                               |
+| Alert Management                               |
+| Incident Management                            |
+| Reporting                                      |
+| Threat Intelligence                            |
++------------------------------------------------+
+                          |
+                    SQLite Database
+                          |
+      +-------------------------------+
+      | Logs                          |
+      | Alerts                        |
+      | Incidents                     |
+      | Reports                       |
+      | Users                         |
+      +-------------------------------+
+```
+
+---
+
+# ⚙️ Technology Stack
+
+## Frontend
+
+- React.js
+- TypeScript
+- Tailwind CSS
+- Axios
+- Recharts
+
+---
+
+## Backend
+
+- Python
+- Flask
+- Flask-CORS
+- JWT Authentication
+
+---
+
+## Database
+
+- SQLite
+
+---
+
+## Security
+
+- Password Hashing
+- JWT Authentication
+- Threat Intelligence
+- MITRE ATT&CK Mapping
+
+---
+
+# 📂 Project Structure
+
+```
+SentinelX/
+
+client/
+│
+├── src/
+├── pages/
+├── components/
+├── services/
+
+server/
+│
+├── routes/
+├── database/
+├── services/
+│     ├── detection/
+│     ├── recommender.py
+│     ├── rules.py
+│
+├── threat_intel/
+│
+├── uploads/
+├── generated_reports/
+├── app.py
+
+README.md
+```
+
+---
+
+# ▶️ Installation
+
+## Clone Repository
+
+```bash
+git clone https://github.com/yourusername/SentinelX.git
+
+cd SentinelX
+```
+
+---
+
+## Backend
+
+```bash
+cd server
+
+python -m venv venv
+
+venv\Scripts\activate
+
+pip install -r requirements.txt
+
+python app.py
+```
+
+---
+
+## Frontend
+
+```bash
+cd client
+
+npm install
+
+npm run dev
+```
+
+---
+
+Backend
+
+```
+http://localhost:5000
+```
+
+Frontend
+
+```
+http://localhost:5173
+```
+
+---
+
+# 🔑 Default Credentials
+
+## Administrator
+
+```
+Username : admin
+Password : admin123
+```
+
+## Analyst
+
+```
+Username : analyst
+Password : analyst123
+```
+
+---
+
+# 🧪 Demo Dataset
+
+The repository includes a sample log dataset that demonstrates:
+
+- Brute Force Attack
+- Port Scan
+- DDoS Attack
+- Blacklisted IP Detection
+- Privilege Escalation
+- Impossible Travel
+- Suspicious Administrator Login
+
+Uploading the dataset automatically generates alerts and populates the dashboard.
+
+---
+
+# 📈 Future Enhancements
+
+- Machine Learning Based Anomaly Detection
+- Real-Time Log Streaming
+- Kafka Integration
+- Elasticsearch Integration
+- GeoIP Attack Map
+- Email & Slack Notifications
+- Multi-Tenant Architecture
+- Docker Deployment
+- Kubernetes Support
+- Cloud Deployment (AWS/Azure)
+
+---
+
+# 👨‍💻 Authors
+
+**Hemant Patil**
+
+Backend Development • Detection Engine • API Development
+
+**Project Partner**
+
+Cyber Security Rules • Threat Intelligence • Testing
+
+---
+
+# 📜 License
+
+This project is developed for educational and research purposes.
+
+MIT License.
+
+---
+
+# ⭐ If you found this project useful, consider giving it a Star.
