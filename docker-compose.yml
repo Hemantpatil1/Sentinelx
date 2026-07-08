@@ -1,0 +1,33 @@
+version: '3.8'
+
+services:
+  server:
+    build:
+      context: ./server
+      dockerfile: Dockerfile
+    ports:
+      - "5000:5000"
+    volumes:
+      - sqlite_data:/app/database
+      - reports_data:/app/generated_reports
+      - uploads_data:/app/uploads
+    environment:
+      - PORT=5000
+      - FLASK_ENV=production
+      - DATABASE_PATH=/app/database/sentinelx.db
+    restart: always
+
+  client:
+    build:
+      context: ./client
+      dockerfile: Dockerfile
+    ports:
+      - "3000:80"
+    depends_on:
+      - server
+    restart: always
+
+volumes:
+  sqlite_data:
+  reports_data:
+  uploads_data:

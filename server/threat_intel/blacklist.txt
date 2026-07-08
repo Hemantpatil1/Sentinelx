@@ -1,0 +1,43 @@
+# SentinelX Blacklisted IP Addresses
+# Format: one IP per line, lines starting with # are comments
+# Last updated: 2024-01-15
+# Source: Internal threat intelligence + public threat feeds
+
+# Known APT Command & Control Servers
+185.234.218.23
+45.142.212.100
+194.165.16.77
+178.128.83.165
+31.220.3.245
+
+# Tor Exit Nodes
+176.10.99.200
+62.102.148.68
+77.247.181.162
+199.87.154.255
+109.70.100.18
+
+# Botnet C2
+192.168.100.200
+10.20.30.40
+203.0.113.100
+198.51.100.50
+192.0.2.200
+
+# Ransomware Distribution
+45.89.125.155
+91.219.236.166
+212.227.167.33
+172.241.192.241
+
+# Brute Force Sources
+103.28.54.161
+87.251.75.100
+194.87.31.207
+193.106.191.159
+
+# DDoS Infrastructure
+77.83.36.40
+45.145.167.22
+78.109.23.1
+89.248.165.42

@@ -1,0 +1,149 @@
+id,alert_name,threat_type,source_ip,dest_ip,username,severity,risk_score,mitre_technique,mitre_tactic,recommendation,status,log_id,created_at
+14,Privilege Escalation Attempt,privilege_escalation,91.23.44.11,192.168.1.100,root,critical,92,T1068,Privilege Escalation,"[CRITICAL] Privilege Escalation Recommendations
+Urgency: IMMEDIATE — Isolate system and investigate now
+
+• Immediately isolate the source system from the network
+• Block the source IP and terminate all active sessions
+• Conduct full forensic analysis of the affected system
+• Check sudo logs and system audit logs for successful escalation
+• Patch any known vulnerabilities that could be exploited
+• Implement application whitelisting and execution controls
+• Review and restrict sudo/admin permissions (least privilege)
+• Enable kernel security modules (SELinux, AppArmor)",open,159,2026-07-08T08:23:03.710810
+13,Privilege Escalation Attempt,privilege_escalation,203.45.11.5,192.168.1.100,admin,critical,92,T1068,Privilege Escalation,"[CRITICAL] Privilege Escalation Recommendations
+Urgency: IMMEDIATE — Isolate system and investigate now
+
+• Immediately isolate the source system from the network
+• Block the source IP and terminate all active sessions
+• Conduct full forensic analysis of the affected system
+• Check sudo logs and system audit logs for successful escalation
+• Patch any known vulnerabilities that could be exploited
+• Implement application whitelisting and execution controls
+• Review and restrict sudo/admin permissions (least privilege)
+• Enable kernel security modules (SELinux, AppArmor)",open,31,2026-07-08T08:23:03.710662
+12,Impossible Travel Detected,impossible_travel,10.1.1.5,172.16.5.9,employee1,high,88,T1078.004,Credential Access,"[HIGH] Impossible Travel Recommendations
+Urgency: Suspend account and contact user within 30 minutes
+
+• Immediately suspend the affected user account pending investigation
+• Contact the user through an out-of-band channel to verify activity
+• Revoke all active sessions and tokens for the account
+• Enable Conditional Access policies based on location
+• Check for VPN or proxy usage that might explain the discrepancy
+• Review account activity logs for unauthorized actions
+• Implement geolocation-based authentication alerts",open,157,2026-07-08T08:23:03.710498
+11,Suspicious Admin Login — Off Hours,suspicious_admin,192.168.2.5,192.168.1.100,administrator,medium,65,T1078,Defense Evasion,"[MEDIUM] Suspicious Admin Login Recommendations
+Urgency: Investigate within 2 hours and verify with user
+
+• Verify with the administrator if the login was intentional
+• Require MFA for all administrative accounts
+• Implement time-based access controls for admin accounts
+• Review all actions performed during this session
+• Enable privileged access management (PAM) alerts
+• Check for signs of account compromise or credential theft
+• Consider implementing Just-In-Time (JIT) admin access",open,156,2026-07-08T08:23:03.708894
+10,DDoS Attack Detected,ddos,185.220.101.45,192.168.1.100,guest,critical,95,T1498,Impact,"[CRITICAL] DDoS Attack Recommendations
+Urgency: IMMEDIATE — Activate DDoS mitigation now
+
+• Enable rate limiting on all public-facing endpoints immediately
+• Block the attacking IP(s) at the network edge
+• Activate DDoS protection / scrubbing service (CloudFlare, AWS Shield)
+• Review and increase capacity or auto-scaling policies
+• Contact upstream ISP for traffic blackholing if needed
+• Enable geo-blocking for suspicious traffic origins
+• Review firewall rules and enable SYN flood protection
+• Document all affected services for incident report",open,56,2026-07-08T08:23:03.708585
+9,Port Scan Detected,port_scan,101.54.78.90,192.168.1.100,guest,high,85,T1046,Discovery,"[HIGH] Port Scan Recommendations
+Urgency: Block IP and review firewall rules within 1 hour
+
+• Block the scanning source IP at the network perimeter
+• Close all unused ports — follow principle of least privilege
+• Review and update firewall rules to restrict unnecessary services
+• Enable IDS/IPS alerts for sequential port access patterns
+• Audit all exposed services and patch known vulnerabilities
+• Consider network segmentation to limit lateral movement
+• Monitor for subsequent exploitation attempts from the same IP",open,41,2026-07-08T08:23:03.695044
+8,Brute Force Attack Detected,brute_force,203.45.11.5,192.168.1.100,admin,high,90,T1110,Credential Access,"[HIGH] Brute Force Attack Recommendations
+Urgency: Immediate action required — lockout or block within minutes
+
+• Block the source IP address immediately in your firewall
+• Reset the password for the targeted account(s)
+• Enable Multi-Factor Authentication (MFA) on all accounts
+• Review and tighten SSH/RDP authentication policies
+• Implement account lockout after 3–5 failed attempts
+• Enable CAPTCHA or rate limiting on login endpoints
+• Review authentication logs for the past 24 hours
+• Check if the attacker successfully authenticated at any point",open,31,2026-07-08T08:23:03.692424
+7,Privilege Escalation Attempt,privilege_escalation,91.23.44.11,192.168.1.100,root,critical,92,T1068,Privilege Escalation,"[CRITICAL] Privilege Escalation Recommendations
+Urgency: IMMEDIATE — Isolate system and investigate now
+
+• Immediately isolate the source system from the network
+• Block the source IP and terminate all active sessions
+• Conduct full forensic analysis of the affected system
+• Check sudo logs and system audit logs for successful escalation
+• Patch any known vulnerabilities that could be exploited
+• Implement application whitelisting and execution controls
+• Review and restrict sudo/admin permissions (least privilege)
+• Enable kernel security modules (SELinux, AppArmor)",open,159,2026-07-08T08:22:55.702882
+6,Privilege Escalation Attempt,privilege_escalation,203.45.11.5,192.168.1.100,admin,critical,92,T1068,Privilege Escalation,"[CRITICAL] Privilege Escalation Recommendations
+Urgency: IMMEDIATE — Isolate system and investigate now
+
+• Immediately isolate the source system from the network
+• Block the source IP and terminate all active sessions
+• Conduct full forensic analysis of the affected system
+• Check sudo logs and system audit logs for successful escalation
+• Patch any known vulnerabilities that could be exploited
+• Implement application whitelisting and execution controls
+• Review and restrict sudo/admin permissions (least privilege)
+• Enable kernel security modules (SELinux, AppArmor)",open,31,2026-07-08T08:22:55.702840
+5,Impossible Travel Detected,impossible_travel,10.1.1.5,172.16.5.9,employee1,high,88,T1078.004,Credential Access,"[HIGH] Impossible Travel Recommendations
+Urgency: Suspend account and contact user within 30 minutes
+
+• Immediately suspend the affected user account pending investigation
+• Contact the user through an out-of-band channel to verify activity
+• Revoke all active sessions and tokens for the account
+• Enable Conditional Access policies based on location
+• Check for VPN or proxy usage that might explain the discrepancy
+• Review account activity logs for unauthorized actions
+• Implement geolocation-based authentication alerts",open,157,2026-07-08T08:22:55.702748
+4,Suspicious Admin Login — Off Hours,suspicious_admin,192.168.2.5,192.168.1.100,administrator,medium,65,T1078,Defense Evasion,"[MEDIUM] Suspicious Admin Login Recommendations
+Urgency: Investigate within 2 hours and verify with user
+
+• Verify with the administrator if the login was intentional
+• Require MFA for all administrative accounts
+• Implement time-based access controls for admin accounts
+• Review all actions performed during this session
+• Enable privileged access management (PAM) alerts
+• Check for signs of account compromise or credential theft
+• Consider implementing Just-In-Time (JIT) admin access",open,156,2026-07-08T08:22:55.701359
+3,DDoS Attack Detected,ddos,185.220.101.45,192.168.1.100,guest,critical,95,T1498,Impact,"[CRITICAL] DDoS Attack Recommendations
+Urgency: IMMEDIATE — Activate DDoS mitigation now
+
+• Enable rate limiting on all public-facing endpoints immediately
+• Block the attacking IP(s) at the network edge
+• Activate DDoS protection / scrubbing service (CloudFlare, AWS Shield)
+• Review and increase capacity or auto-scaling policies
+• Contact upstream ISP for traffic blackholing if needed
+• Enable geo-blocking for suspicious traffic origins
+• Review firewall rules and enable SYN flood protection
+• Document all affected services for incident report",open,56,2026-07-08T08:22:55.701132
+2,Port Scan Detected,port_scan,101.54.78.90,192.168.1.100,guest,high,85,T1046,Discovery,"[HIGH] Port Scan Recommendations
+Urgency: Block IP and review firewall rules within 1 hour
+
+• Block the scanning source IP at the network perimeter
+• Close all unused ports — follow principle of least privilege
+• Review and update firewall rules to restrict unnecessary services
+• Enable IDS/IPS alerts for sequential port access patterns
+• Audit all exposed services and patch known vulnerabilities
+• Consider network segmentation to limit lateral movement
+• Monitor for subsequent exploitation attempts from the same IP",open,41,2026-07-08T08:22:55.695333
+1,Brute Force Attack Detected,brute_force,203.45.11.5,192.168.1.100,admin,high,90,T1110,Credential Access,"[HIGH] Brute Force Attack Recommendations
+Urgency: Immediate action required — lockout or block within minutes
+
+• Block the source IP address immediately in your firewall
+• Reset the password for the targeted account(s)
+• Enable Multi-Factor Authentication (MFA) on all accounts
+• Review and tighten SSH/RDP authentication policies
+• Implement account lockout after 3–5 failed attempts
+• Enable CAPTCHA or rate limiting on login endpoints
+• Review authentication logs for the past 24 hours
+• Check if the attacker successfully authenticated at any point",open,31,2026-07-08T08:22:55.694091

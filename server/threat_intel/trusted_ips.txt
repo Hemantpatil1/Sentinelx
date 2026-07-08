@@ -1,0 +1,30 @@
+# SentinelX Trusted IP Addresses
+# Format: one IP per line, lines starting with # are comments
+# These IPs are whitelisted and should not generate alerts
+
+# Internal Network
+10.0.0.1
+10.0.0.2
+10.0.1.1
+192.168.1.1
+192.168.1.100
+
+# Corporate VPN Endpoints
+203.0.113.10
+203.0.113.11
+203.0.113.12
+
+# Monitoring & Management
+172.16.0.1
+172.16.0.2
+172.16.0.3
+
+# DNS Servers
+8.8.8.8
+8.8.4.4
+1.1.1.1
+1.0.0.1
+
+# Mail Gateway
+198.51.100.10
+198.51.100.11
